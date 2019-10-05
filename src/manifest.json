@@ -1,5 +1,5 @@
 {
-  "name": "Chrome Extension Webpack",
+  "name": "tweet-links-selection-shortcut",
   "options_page": "options.html",
   "background": {
     "page": "background.html"
