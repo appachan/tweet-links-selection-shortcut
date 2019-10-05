@@ -21,6 +21,7 @@ if (fileSystem.existsSync(secretsPath)) {
 var options = {
   mode: process.env.NODE_ENV || "development",
   entry: {
+    content_script: path.join(__dirname, "src", "js", "content_script.js"),
     popup: path.join(__dirname, "src", "js", "popup.js"),
     options: path.join(__dirname, "src", "js", "options.js"),
     background: path.join(__dirname, "src", "js", "background.js")
@@ -83,7 +84,10 @@ var options = {
       chunks: ["background"]
     }),
     new WriteFilePlugin()
-  ]
+  ],
+  chromeExtensionBoilerplate: {
+    notHotReload: ["content_script"]
+  }
 };
 
 if (env.NODE_ENV === "development") {
